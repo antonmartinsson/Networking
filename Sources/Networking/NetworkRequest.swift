@@ -14,7 +14,7 @@ public enum Scheme: String {
 
 public typealias Headers = [String: String]
 
-public protocol NetworkRequest {
+public protocol NetworkRequest: Sendable {
     var baseUrl: String { get }
     var scheme: Scheme { get }
     var path: String { get }
