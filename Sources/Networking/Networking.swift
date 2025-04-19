@@ -4,7 +4,7 @@ enum APIError: Error, Equatable {
     case unauthorized
 }
 
-public struct RequestClient {
+public struct RequestExecutor {
     public init() {}
     
     public func execute<T: Codable & Sendable>(_ networkRequest: NetworkRequest) async throws -> T {
