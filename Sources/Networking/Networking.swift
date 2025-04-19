@@ -5,6 +5,8 @@ enum APIError: Error, Equatable {
 }
 
 public struct RequestClient {
+    public init() {}
+    
     public func execute<T: Codable & Sendable>(_ networkRequest: NetworkRequest) async throws -> T {
         let urlRequest = try await createUrlRequest(for: networkRequest)
         let (data, response) = try await URLSession.shared.data(for: urlRequest)
@@ -48,4 +50,5 @@ public struct RequestClient {
 
         return urlRequest
     }
+    
 }
