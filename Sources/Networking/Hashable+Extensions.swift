@@ -1,6 +1,6 @@
 import Foundation
 
-extension Hashable {
+public extension Hashable {
     var queryItems: [URLQueryItem] {
         let mirror = Mirror(reflecting: self)
         return mirror.children.compactMap { child in
