@@ -8,9 +8,7 @@ public struct RequestExecutor: Sendable {
     public init() {}
     
     public func execute<T: Codable & Sendable>(_ networkRequest: NetworkRequest) async throws -> T {
-        let session: URLSession = {
-            return URLSession(configuration: .ephemeral)
-        }()
+        let session: URLSession = .shared
         let urlRequest = try await createUrlRequest(for: networkRequest)
         let (data, response) = try await session.data(for: urlRequest)
         let httpResponse = response as? HTTPURLResponse
